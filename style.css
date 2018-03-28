@@ -130,9 +130,7 @@ a:visited {
 
 /* Hide extra columns so they don't squash file names */
 @media (max-width: 600px) {
-  table tr > *:nth-child(2),
-  table tr > *:nth-child(3),
-  table tr > *:nth-child(4) {
+  table tr > *:nth-child(odd) {
     display: none;
   }
 
@@ -151,6 +149,7 @@ a:visited {
 }
 
 @media (max-width: 400px) {
+
   h1 {
     font-size: 1.375em;
   }
