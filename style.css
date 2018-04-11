@@ -126,13 +126,8 @@ a:visited {
   width: 180px;
   opacity: 1.0;
 }
-
 /* Hide extra columns so they don't squash file names */
 @media (max-width: 600px) {
-  table tr > *:nth-child(odd) {
-    display: none;
-  }
-
   h1 {
     font-size: 1.5em;
   }
@@ -145,6 +140,9 @@ a:visited {
 	padding-bottom: 40px;
   }
   
+  .indexcollastmod,.indexcoldesc{
+    display: none;
+  }
 }
 
 @media (max-width: 400px) {
@@ -152,9 +150,8 @@ a:visited {
   h1 {
     font-size: 1.375em;
   }
-  * {
-    font-size: 30px;
-    line-height: 30px;
-    padding: 0;
+  
+  .indexcolsize{
+	display: none;
   }
 }
