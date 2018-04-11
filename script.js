@@ -172,9 +172,78 @@
 
     filter('');
   }
+  
+  function addKeyListen(){
+	
+	  window.onkeydown = function(k){
+      switch(k.key){
+        case 'q':
+          if(k.ctrlKey) document.getElementById('search').focus();
+          break;
+        case 'Enter':
+          {
+            var sel = document.getElementById('select');
+            if(sel != null){
+              sel.querySelector('a').click();
+            }
+            break;
+          }
+        case 'ArrowUp':
+        case 'ArrowDown':
+          {
+            var trs = document.querySelectorAll('tbody tr');
+            if(trs == null && trs.length == 0) break;
+            var sel = document.getElementById('select');
+            var isselect = sel != null;
+            var ishidden = false;
+            if(sel != null) ishidden = sel.getAttribute('class') == 'hidden';
+            
+            for(var i=0; i<trs.length; i++){
+              var tr = trs[i];
+              if(tr.getAttribute('class') != 'hidden'){
+
+                if(!isselect || ishidden){
+                  if(sel != null) sel.removeAttribute('id');
+                  tr.setAttribute('id','select');
+                  break;
+                }
+
+
+                if(tr.getAttribute('id') == 'select'){
+                    if(k.key == 'ArrowUp'){
+                      for(i--;i>=0;i--){
+                        if(trs[i].getAttribute('class') != 'hidden'){
+                          tr.removeAttribute('id');
+                          trs[i].setAttribute('id','select');
+                          return;
+                        }
+                      }
+                    return;
+                    }
+
+                  if(k.key == 'ArrowDown' && i < trs.length -1){
+                    for(i++;i < trs.length; i++){
+                      if(trs[i].getAttribute('class') != 'hidden'){
+                        tr.removeAttribute('id');
+                        trs[i].setAttribute('id','select');
+                        return;
+                      }
+                    }
+                    return;
+                  }
+                }
+              }
+                
+            }
+          }
+          break;
+        }
+      }
+  }
 
   fixTable();
   addTitle();
   fixTime();
   addSearch();
+  addKeyListen();
 }

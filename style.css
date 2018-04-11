@@ -126,6 +126,12 @@ a:visited {
   width: 180px;
   opacity: 1.0;
 }
+
+/* style for current select element */
+#select {
+  background: darkgrey;
+}
+
 /* Hide extra columns so they don't squash file names */
 @media (max-width: 600px) {
   h1 {
