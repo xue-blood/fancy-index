@@ -134,7 +134,7 @@
     const input = document.createElement('input');
     input.type = 'search';
     input.id = 'search';
-    input.setAttribute('placeholder', 'Search');
+    input.setAttribute('placeholder', 'Ctrl + Q : Search');
     document.getElementById('page-header').appendChild(input);
 
     const sortColumns = Array.from(document.querySelectorAll('thead a'));
@@ -164,8 +164,19 @@
           rows[i].className = 'hidden';
         }
       });
-    }
 
+      // check is current select has been hide
+      var sel = document.getElementById('select');
+      if (sel != null && sel.className == 'hidden' && rows != null && rows.length > 0) {
+        for (var i = 0; i < rows.length; i++) {
+          if (rows[i].className != 'hidden') {
+            sel.removeAttribute('id');
+            rows[i].setAttribute('id', 'select');
+            break;
+          }
+        }
+      }
+    }
     document.getElementById('search').addEventListener('input', ({ target }) => {
       filter(target.value);
     });

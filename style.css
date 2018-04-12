@@ -101,7 +101,7 @@ a:visited {
   position: fixed;
   top: 20px;
   right: 20px;
-  width: 90px;
+  width: 150px;
   -webkit-transition: width ease 0.2s, opacity ease 0.4s;
   -moz-transition: width ease 0.2s, opacity ease 0.4s;
   -webkit-border-radius: 32px;
@@ -123,13 +123,14 @@ a:visited {
 #search:focus {
   border-color: #3498db;
   outline: 2;
-  width: 180px;
+  width: 270px;
   opacity: 1.0;
 }
 
 /* style for current select element */
 #select {
   background: darkgrey;
+  transition: .4s;
 }
 
 /* Hide extra columns so they don't squash file names */
